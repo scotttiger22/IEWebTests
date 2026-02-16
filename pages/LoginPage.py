@@ -1,5 +1,7 @@
 from pages.BasePage import BasePage
 from selenium.webdriver.common.by import By
+import allure
+
 
 class LoginPageLocators:
     LOGIN_FIELD = (By.XPATH, '//*[@id="field_email"]')
@@ -34,14 +36,21 @@ class LoginPageHelper(BasePage):
         self.find_element(LoginPageLocators.BUTTON_TAB)
         self.find_element(LoginPageLocators.QR_TAB)
 
+    @allure.step('Нажимаем на кнопку "Войти"')
     def click_login(self):
+        self.attach_screenshot()
         self.find_element(LoginPageLocators.LOGIN_BUTTON).click()
 
+
+    @allure.step('Получаем текст ошибки')
     def get_error_text(self):
+        self.attach_screenshot()
         return self.find_element(LoginPageLocators.ERROR_TEXT_LOGIN).text
 
+    @allure.step('Вводим логин"')
     def input_login(self, login):
         self.find_element(LoginPageLocators.LOGIN_FIELD).send_keys(login)
 
+    @allure.step('Получаем текст ошибки отсутствия пароля')
     def get_error_password_text(self):
         return self.find_element(LoginPageLocators.ERROR_TEXT_PASSWORD).text
