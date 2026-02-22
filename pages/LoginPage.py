@@ -19,6 +19,7 @@ class LoginPageLocators:
     ERROR_TEXT_PASSWORD = (By.XPATH, '//span[text()="Введите пароль"]')
     RESTORE_BUTTON = (By.XPATH, '//span[text()="Восстановить"]')
     CANCELL_BUTTON = (By.XPATH, '//span[text()="Отмена"]')
+    SEARCH_FIELD = (By.XPATH, '//input[@name="st.query"]')
 
 class LoginPageHelper(BasePage):
     def __init__(self, driver):
@@ -39,6 +40,7 @@ class LoginPageHelper(BasePage):
         self.find_element(LoginPageLocators.LOGIN_YANDEX)
         self.find_element(LoginPageLocators.BUTTON_TAB)
         self.find_element(LoginPageLocators.QR_TAB)
+        self.find_element(LoginPageLocators.SEARCH_FIELD)
 
     @allure.step('Нажимаем на кнопку "Войти"')
     def click_login(self):
@@ -69,3 +71,8 @@ class LoginPageHelper(BasePage):
     def click_recovery(self):
         self.attach_screenshot()
         self.find_element(LoginPageLocators.RESTORE_BUTTON).click()
+
+    @allure.step('Нажимаем на кнопку "Зарегистрироваться"')
+    def click_registration(self):
+        self.find_element(LoginPageLocators.REGISTER_BUTTON).click()
+        self.attach_screenshot()
