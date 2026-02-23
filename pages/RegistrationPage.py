@@ -12,14 +12,14 @@ class RegistrationPageLocators:
 class RegistrationPageHelper(BasePage):
     def __init__(self, driver):
         self.driver = driver
-        # self.check_page()
+        self.check_page()
 
     def check_page(self):
         with allure.step('Проверяем корректность загрузки страницы'):
-            self.find_element(RegistrationPageLocators.PHONE_FIELD)
-            self.find_element(RegistrationPageLocators.COUNTRY_LIST)
-            self.find_element(RegistrationPageLocators.COUNTRY_ITEM)
-            self.find_element(RegistrationPageLocators.SUBMIT_BUTTON)
+            self.attach_screenshot()
+        self.find_element(RegistrationPageLocators.PHONE_FIELD)
+        self.find_element(RegistrationPageLocators.COUNTRY_LIST)
+        self.find_element(RegistrationPageLocators.SUBMIT_BUTTON)
 
     @allure.step('Выбираем рандомную страну')
     def select_random_country(self):
