@@ -20,7 +20,7 @@ class HelpPageLocators:
     IMPORTANT_INFORMATION = (By.XPATH, '//div[text()="Полезная информация"]')
     ADVERTISEMENT_CABINET = (By.XPATH, '//div[text()="Рекламный кабинет"]')
 
-class HelpPageHelperHelper(BasePageHelper):
+class HelpPageHelper(BasePageHelper):
     def __init__(self, driver):
         self.driver = driver
         self.check_page()
