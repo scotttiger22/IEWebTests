@@ -1,4 +1,4 @@
-from pages.BasePage import BasePage
+from pages.BasePage import BasePageHelper
 from selenium.webdriver.common.by import By
 import allure
 import random
@@ -9,7 +9,7 @@ class RegistrationPageLocators:
     COUNTRY_ITEM = (By.XPATH,'//div[@class="CountryList-module_countryList__listItemCode__LzHon"]//span[@class="vkuiText__host vkuiText__sizeYNone vkuiTypography__host vkuiTypography__normalize vkuiRootComponent__host"]')
     SUBMIT_BUTTON = (By.XPATH, '//span[text()="Далее"]')
 
-class RegistrationPageHelper(BasePage):
+class RegistrationPageHelperHelper(BasePageHelper):
     def __init__(self, driver):
         self.driver = driver
         self.check_page()
