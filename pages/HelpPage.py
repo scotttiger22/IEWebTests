@@ -1,4 +1,4 @@
-from pages.BasePage import BasePage
+from pages.BasePage import BasePageHelper
 from selenium.webdriver.common.by import By
 import allure
 from selenium.webdriver import ActionChains as Action
@@ -20,7 +20,7 @@ class HelpPageLocators:
     IMPORTANT_INFORMATION = (By.XPATH, '//div[text()="Полезная информация"]')
     ADVERTISEMENT_CABINET = (By.XPATH, '//div[text()="Рекламный кабинет"]')
 
-class HelpPageHelper(BasePage):
+class HelpPageHelper(BasePageHelper):
     def __init__(self, driver):
         self.driver = driver
         self.check_page()
