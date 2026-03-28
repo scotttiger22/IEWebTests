@@ -6,7 +6,9 @@ def browser():
     options = webdriver.ChromeOptions()
     options.add_argument("--incognito")
     options.add_argument("--disable-cache")
-    driver = webdriver.Chrome(options=options)
+    options.add_argument("--lang=ru")
+    driver = webdriver.Remote(command_executor ="159.194.203.73:4444", options=options)
     driver.delete_all_cookies()
     yield driver
-    driver.quit()
+    if driver:
+        driver.quit()
